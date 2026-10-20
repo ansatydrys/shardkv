@@ -1,0 +1,20 @@
+x-node: &node
+  build: .
+  restart: "no"
+services:
+  node1:
+    <<: *node
+    command: ["serve", "-config", "cluster.docker.json", "-id", "node1", "-data", "/data"]
+    volumes: ["node1-data:/data"]
+  node2:
+    <<: *node
+    command: ["serve", "-config", "cluster.docker.json", "-id", "node2", "-data", "/data"]
+    volumes: ["node2-data:/data"]
+  node3:
+    <<: *node
+    command: ["serve", "-config", "cluster.docker.json", "-id", "node3", "-data", "/data"]
+    volumes: ["node3-data:/data"]
+volumes:
+  node1-data:
+  node2-data:
+  node3-data:
