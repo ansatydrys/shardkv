@@ -1,0 +1,11 @@
+syntax = "proto3";
+package shardkv;
+import "google/protobuf/struct.proto";
+// Field contracts are documented in docs/protocol.md. Binding is hand-written.
+service KV {
+ rpc Put(google.protobuf.Struct) returns (google.protobuf.Struct);
+ rpc Get(google.protobuf.Struct) returns (google.protobuf.Struct);
+ rpc Delete(google.protobuf.Struct) returns (google.protobuf.Struct);
+ rpc Replicate(google.protobuf.Struct) returns (google.protobuf.Struct);
+ rpc Status(google.protobuf.Struct) returns (google.protobuf.Struct);
+}
